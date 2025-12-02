@@ -31,9 +31,9 @@ const AboutSection = () => {
                 Telling stories through the art of editing
               </h2>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                I'm a professional video editor with over 5 years of experience crafting visual content 
-                for brands, creators, and filmmakers. My journey began with a passion for cinema and 
-                storytelling, which evolved into a career of bringing ideas to life through video.
+                I'm a professional video editor with over 2 years of experience crafting visual content 
+                for brands, creators, and filmmakers. My journey began with a passion for videos
+                  which evolved into a career of bringing ideas to life through video.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 From YouTube content and commercials to documentaries and music videos, I've worked 
