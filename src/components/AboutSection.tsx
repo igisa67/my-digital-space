@@ -1,20 +1,20 @@
-import { Code2, Palette, Zap } from "lucide-react";
+import { Film, Sparkles, Clock } from "lucide-react";
 
 const skills = [
   {
-    icon: Code2,
-    title: "Development",
-    description: "Building scalable web applications with modern technologies like React, TypeScript, and Node.js.",
+    icon: Film,
+    title: "Video Editing",
+    description: "Expert in Premiere Pro, DaVinci Resolve, and Final Cut Pro. Seamless cuts, color grading, and audio mixing.",
   },
   {
-    icon: Palette,
-    title: "Design",
-    description: "Creating intuitive user interfaces with a focus on aesthetics and user experience.",
+    icon: Sparkles,
+    title: "Motion Graphics",
+    description: "Creating stunning animations and visual effects using After Effects and Cinema 4D.",
   },
   {
-    icon: Zap,
-    title: "Performance",
-    description: "Optimizing applications for speed and efficiency to deliver the best user experience.",
+    icon: Clock,
+    title: "Fast Turnaround",
+    description: "Efficient workflow and clear communication to deliver high-quality edits on tight deadlines.",
   },
 ];
 
@@ -28,22 +28,23 @@ const AboutSection = () => {
             <div>
               <p className="text-primary font-medium mb-4">About Me</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Passionate about creating digital excellence
+                Telling stories through the art of editing
               </h2>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                I'm a full-stack developer with over 5 years of experience building web applications. 
-                My journey started with a curiosity for how things work on the internet, and it has evolved 
-                into a passion for creating seamless digital experiences.
+                I'm a professional video editor with over 5 years of experience crafting visual content 
+                for brands, creators, and filmmakers. My journey began with a passion for cinema and 
+                storytelling, which evolved into a career of bringing ideas to life through video.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source 
-                projects, or sharing knowledge with the developer community.
+                From YouTube content and commercials to documentaries and music videos, I've worked 
+                across diverse genres. I believe great editing is invisible—it serves the story and 
+                keeps audiences engaged from start to finish.
               </p>
             </div>
 
             {/* Right column - Skills */}
             <div className="space-y-6">
-              {skills.map((skill, index) => (
+              {skills.map((skill) => (
                 <div
                   key={skill.title}
                   className="bg-card border border-border rounded-xl p-6 hover-lift transition-all hover:border-primary/50"

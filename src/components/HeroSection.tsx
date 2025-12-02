@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Play } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -12,30 +12,31 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-primary font-medium mb-4 animate-fade-up opacity-0 stagger-1">
-            Hello, I'm
+          <p className="text-primary font-medium mb-4 animate-fade-up opacity-0 stagger-1 flex items-center justify-center gap-2">
+            <Play size={16} className="fill-current" />
+            Video Editor & Motion Designer
           </p>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up opacity-0 stagger-2">
-            <span className="text-foreground">Creative</span>
+            <span className="text-foreground">Crafting</span>
             <br />
-            <span className="text-gradient">Developer</span>
+            <span className="text-gradient">Visual Stories</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up opacity-0 stagger-3">
-            I craft beautiful digital experiences through clean code and thoughtful design. 
-            Specializing in modern web applications that make an impact.
+            I transform raw footage into compelling narratives. From cinematic edits to dynamic 
+            motion graphics, I bring your vision to life frame by frame.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up opacity-0 stagger-4">
             <a
               href="#projects"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-medium rounded-lg hover-lift hover:bg-primary/90 transition-all"
             >
-              View My Work
+              View My Reel
             </a>
             <a
               href="#contact"
               className="inline-flex items-center justify-center px-8 py-4 border border-border text-foreground font-medium rounded-lg hover-lift hover:bg-secondary transition-all"
             >
-              Get In Touch
+              Let's Collaborate
             </a>
           </div>
         </div>

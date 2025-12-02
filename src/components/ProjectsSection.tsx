@@ -1,29 +1,47 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with cart functionality, payment integration, and admin dashboard.",
-    tags: ["React", "Node.js", "Stripe", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Brand Commercial",
+    description: "A cinematic product launch video for a tech startup, featuring dynamic transitions and color grading.",
+    tags: ["Premiere Pro", "After Effects", "Color Grading"],
+    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=400&fit=crop",
+    videoUrl: "#",
   },
   {
-    title: "Task Management App",
-    description: "A collaborative project management tool with real-time updates and team features.",
-    tags: ["TypeScript", "Next.js", "Prisma", "PostgreSQL"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Music Video",
+    description: "An energetic music video with creative visual effects, speed ramps, and beat-synced editing.",
+    tags: ["DaVinci Resolve", "VFX", "Motion Graphics"],
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&h=400&fit=crop",
+    videoUrl: "#",
   },
   {
-    title: "AI Content Generator",
-    description: "An intelligent content creation tool powered by machine learning for marketers.",
-    tags: ["Python", "React", "OpenAI", "FastAPI"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Documentary Short",
+    description: "A powerful short documentary featuring interviews, B-roll storytelling, and emotional pacing.",
+    tags: ["Final Cut Pro", "Sound Design", "Storytelling"],
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop",
+    videoUrl: "#",
+  },
+  {
+    title: "YouTube Series",
+    description: "Ongoing editing for a creator with 500K+ subscribers. Engaging cuts, graphics, and thumbnails.",
+    tags: ["Premiere Pro", "Photoshop", "Content Creation"],
+    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600&h=400&fit=crop",
+    videoUrl: "#",
+  },
+  {
+    title: "Corporate Training",
+    description: "Professional training videos with clean graphics, screen recordings, and voiceover sync.",
+    tags: ["After Effects", "Screen Capture", "Motion Graphics"],
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
+    videoUrl: "#",
+  },
+  {
+    title: "Event Highlight",
+    description: "A fast-paced highlight reel capturing the energy and key moments of a major conference.",
+    tags: ["Premiere Pro", "Multicam", "Fast Editing"],
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
+    videoUrl: "#",
   },
 ];
 
@@ -38,13 +56,13 @@ const ProjectsSection = () => {
               Featured Projects
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and passion for building 
-              exceptional digital products.
+              A selection of my recent video editing work across different genres and styles. 
+              Each project represents a unique story brought to life.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <article
                 key={project.title}
                 className="group bg-card border border-border rounded-xl overflow-hidden hover-lift transition-all hover:border-primary/50"
@@ -55,7 +73,13 @@ const ProjectsSection = () => {
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-60" />
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center">
+                      <Play className="w-6 h-6 text-primary-foreground fill-current ml-1" />
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className="font-display text-xl font-semibold text-foreground mb-2">
@@ -74,22 +98,13 @@ const ProjectsSection = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-4">
-                    <a
-                      href={project.liveUrl}
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
-                  </div>
+                  <a
+                    href={project.videoUrl}
+                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <ExternalLink size={16} />
+                    Watch Project
+                  </a>
                 </div>
               </article>
             ))}
