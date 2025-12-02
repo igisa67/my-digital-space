@@ -1,9 +1,9 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Youtube, Instagram, Linkedin } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
+  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: Instagram, href: "#", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
 ];
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Portfolio. All rights reserved.
+            © {new Date().getFullYear()} Video Editor Portfolio. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Video } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
@@ -14,7 +14,7 @@ const ContactSection = () => {
     e.preventDefault();
     toast({
       title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      description: "Thank you for reaching out. I'll get back to you within 24 hours.",
     });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -30,11 +30,11 @@ const ContactSection = () => {
           <div className="text-center mb-16">
             <p className="text-primary font-medium mb-4">Get In Touch</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Let's Work Together
+              Let's Create Together
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear about it. Send me a message and let's 
-              create something amazing together.
+              Have a video project in mind? Whether it's a commercial, YouTube content, or a 
+              creative piece, I'd love to hear about it and bring your vision to life.
             </p>
           </div>
 
@@ -56,13 +56,22 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-1">Location</h3>
-                  <p className="text-muted-foreground">San Francisco, California</p>
+                  <p className="text-muted-foreground">Los Angeles, California</p>
                 </div>
               </div>
-              <div className="pt-8">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <Video className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-1">Availability</h3>
+                  <p className="text-muted-foreground">Currently accepting new projects</p>
+                </div>
+              </div>
+              <div className="pt-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm currently available for freelance work and full-time opportunities. 
-                  Whether you have a project, a question, or just want to say hi, feel free to reach out!
+                  I work with brands, creators, and agencies worldwide. Remote collaboration 
+                  is seamless with my established workflow. Let's discuss your next project!
                 </p>
               </div>
             </div>
@@ -101,7 +110,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
+                  Project Details
                 </label>
                 <textarea
                   id="message"
@@ -111,7 +120,7 @@ const ContactSection = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about your video project, timeline, and budget..."
                 />
               </div>
               <button
