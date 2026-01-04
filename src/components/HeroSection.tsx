@@ -12,19 +12,28 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+
+          {/* === PROFILNA SLIKA === */}
+          <div className="flex justify-center mb-8 animate-fade-up opacity-0 stagger-">
+            <img
+              src="/proflina.png"
+              alt="Profile"
+              className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-4 border-primary/40 shadow-xl"
+            />
+          </div>
+
           <p className="text-primary font-medium mb-4 animate-fade-up opacity-0 stagger-1 flex items-center justify-center gap-2">
             <Play size={16} className="fill-current" />
             Video Editor & Motion Designer
           </p>
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up opacity-0 stagger-2">
-            <span className="text-foreground">Crafting</span>
-            <br />
-            <span className="text-gradient">Visual Stories</span>
-          </h1>
+
+        
+
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-up opacity-0 stagger-3">
             I transform raw footage into compelling narratives. From cinematic edits to dynamic 
             motion graphics, I bring your vision to life frame by frame.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up opacity-0 stagger-4">
             <a
               href="#projects"

@@ -2,24 +2,61 @@ import { useState } from "react";
 import { Mail, MapPin, Send, Video } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+// ⚠️ KORAK 1: OBAVEZNO ZAMIJENITE OVAJ URL svojim API End-pointom iz SheetDB-a
+const SheetDB_API_URL = "https://sheetdb.io/api/v1/1t3hp4xhrs3mq"; 
+
 const ContactSection = () => {
   const { toast } = useToast();
+  // AŽURIRANO STANJE: Ključevi se podudaraju s nazivima stupaca
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+    Name: "", 
+    Email: "",
+    "Project Details": "", // Koristimo navodnike zbog razmaka u imenu
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      const response = await fetch(SheetDB_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: formData 
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us.",
+        });
+        // Resetiranje s novim ključevima
+        setFormData({ Name: "", Email: "", "Project Details": "" });
+      } else {
+        console.error("SheetDB Error:", await response.json());
+        toast({
+          title: "Error Sending",
+          description: "Provjerite SheetDB API URL i nazive stupaca.",
+          // @ts-ignore
+          variant: "destructive", 
+        });
+      }
+    } catch (error) {
+      console.error("Network Error:", error);
+      toast({
+        title: "Network Error",
+        description: "Unable to connect to the server.",
+        // @ts-ignore
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // Ova funkcija automatski radi za sve ključeve
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -39,15 +76,16 @@ const ContactSection = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
+            {/* Contact Info - ostaje isti */}
             <div className="space-y-8">
+              {/* ... (kontakt info) ... */}
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-1">Email</h3>
-                  <p className="text-muted-foreground">hello@example.com</p>
+                  <p className="text-muted-foreground">igor.sokolovicc7@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -56,7 +94,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-1">Location</h3>
-                  <p className="text-muted-foreground">Los Angeles, California</p>
+                  <p className="text-muted-foreground">Samobor, Croatia</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -85,8 +123,8 @@ const ContactSection = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
+                  name="Name" // <-- AŽURIRANO!
+                  value={formData.Name} // <-- AŽURIRANO!
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
@@ -100,8 +138,8 @@ const ContactSection = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
+                  name="Email" // <-- AŽURIRANO!
+                  value={formData.Email} // <-- AŽURIRANO!
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
@@ -114,8 +152,8 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
+                  name="Project Details" // <-- AŽURIRANO! OBAVEZNO s razmakom!
+                  value={formData["Project Details"]} // <-- AŽURIRANO!
                   onChange={handleChange}
                   required
                   rows={5}
